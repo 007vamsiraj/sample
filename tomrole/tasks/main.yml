@@ -1,34 +1,34 @@
 ---
 # tasks file for mytomrole
 - name: install java8 on linux2
-   yum:
+  yum:
      name: java-1.8.0
      state: present
    
 - name: install tomcat
-   yum:
+  yum:
      name: tomcat
      state: present
 
 - name: copy tomcat_conf file
-   template:
+  template:
      src: templates/tom_conf.j2
      dest: /usr/share/tomcat/conf/tomcat.conf
 
 - name: install admin packages
-   yum:
+  yum:
      name: "{{items}}"
      state: present
-   with_items:
+  with_items:
      - tomcat-webapps
      - tomcat-admin-webapps 
 
 - name: copy tom_xml file
-   template:
+  template:
      src: templates/tom_xml.j2
      dest: /usr/share/tomcat/conf/tomcat-users.xml
 
 - name: starting tomcat
-   service:
+  service:
      name: tomcat
      state: started
