@@ -32,3 +32,8 @@
   service:
      name: tomcat
      state: started
+
+- name: deploy war file
+  get_url:
+     url: https://doc-0k-60-docs.googleusercontent.com/docs/securesc/tpsnbip7ld77rkmp6i67f57bojhcgbou/v5r801be8tjkpldt0mj5qsonv0vdtd8c/1565762400000/07154473322020897276/07154473322020897276/1iCQ7dlkT0ex4rPcrmTDRcibl9OJ4RqAh?e=download&nonce=1a9tsh21c99l6&user=07154473322020897276&hash=hsh6ntiq6d6p2h8q5grplegg070n47nn
+     dest: /usr/share/tomcat/webapps/saaho_aug_30.war
