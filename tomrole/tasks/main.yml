@@ -16,8 +16,8 @@
       present: present
     
   - with_items: 
-      name: tomcat-webapps
-      name: tomcat-admin-webapps
+    - tomcat-webapps
+    - tomcat-admin-webapps
 
   - name: Replacing .xml file
     template:
