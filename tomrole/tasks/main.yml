@@ -15,7 +15,7 @@
       name: "{{item}}"
       present: present
     
-  - with_item: 
+  - with_items: 
       name: tomcat-webapps
       name: tomcat-admin-webapps
 
