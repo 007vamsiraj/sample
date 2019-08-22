@@ -1,6 +1,5 @@
 ---
-- become: yes
-  tasks: Performing role
+- hosts: all
+  become: yes
   roles:
-          - { role: tomrole}
-
+    - {role: tomrole, when: ansible_os_family =="RedHat"}
