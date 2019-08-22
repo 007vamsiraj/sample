@@ -1,7 +1,6 @@
 ---
-- hosts: Tommy
-  become: yes
+- become: yes
   tasks: Performing role
   roles:
-          - { role: tomrole }
+          - { role: tomrole 
 
