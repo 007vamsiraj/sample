@@ -1,9 +1,9 @@
 ---
 # tasks file for tomrole
-  name: install tomcat on Apache2
-  yum: 
-    name: tomcat 
-    state: present
+  - name: install tomcat on Apache2
+    yum: 
+      name: tomcat 
+      state: present
 
   name: replacing tomcat conf file using jinja2
   template:
