@@ -7,7 +7,7 @@
 
   - name: replacing tomcat conf file using jinja2
     template:
-      src: templates/tomcon.j2
+      src: templates/tom.j2
       dest: /usr/share/tomcat/conf/tomcat.conf     
    
   - name: Installing webapps & admin webapps for tomcat
@@ -21,7 +21,7 @@
 
   - name: Replacing .xml file
     template:
-      src: templates/tomuser.j2
+      src: templates/tom1.j2
       dest: /usr/share/tomcat/conf/tomcat-users.xml       
 
   - service:
