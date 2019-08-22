@@ -5,29 +5,33 @@
       name: tomcat 
       state: present
 
-  name: replacing tomcat conf file using jinja2
-  template:
-    src: /templates/tomcat-conf.j2
-    dest: /usr/share/tomcat/conf/tomcat.conf     
+  - name: replacing tomcat conf file using jinja2
+    template:
+      src: /templates/tomcat-conf.j2
+      dest: /usr/share/tomcat/conf/tomcat.conf     
    
-  name: Installing webapps & admin webapps for tomcat
-  yum:
-    name: "{{item}}"
-    present: present
-  with_item: 
-    name: tomcat-webapps
-    name: tomcat-admin-webapps
+  
 
-  name: Replacing .xml file
-  template:
-    src: /templates/tomcat-users.j2
-    dest: /usr/share/tomcat/conf/tomcat-users.xml       
 
-  service:
-    name: tomcat
-    state: started
 
-  name: Deploy .war file to tomcat
-  get_url:
-    url: https://ravidevops.s3-ap-southeast-1.amazonaws.com/raviLogin.war /usr/local/tomcat/webapps/
-    dest: /usr/share/tomcat/webapps/saaho.war     
+  - name: Installing webapps & admin webapps for tomcat
+    yum:
+      name: "{{item}}"
+      present: present
+    with_item: 
+      name: tomcat-webapps
+      name: tomcat-admin-webapps
+
+  - name: Replacing .xml file
+    template:
+      src: /templates/tomcat-users.j2
+      dest: /usr/share/tomcat/conf/tomcat-users.xml       
+
+  - service:
+      name: tomcat
+      state: started
+
+  - name: Deploy .war file to tomcat
+    get_url:
+      url: https://ravidevops.s3-ap-southeast-1.amazonaws.com/raviLogin.war /usr/local/tomcat/webapps/
+      dest: /usr/share/tomcat/webapps/saaho.war     
