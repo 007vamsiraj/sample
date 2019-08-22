@@ -10,15 +10,12 @@
       src: /templates/tomcat-conf.j2
       dest: /usr/share/tomcat/conf/tomcat.conf     
    
-  
-
-
-
   - name: Installing webapps & admin webapps for tomcat
     yum:
       name: "{{item}}"
       present: present
-    with_item: 
+    
+  - with_item: 
       name: tomcat-webapps
       name: tomcat-admin-webapps
 
