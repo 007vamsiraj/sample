@@ -12,8 +12,8 @@
    
   name: Installing webapps & admin webapps for tomcat
   yum:
-    name: {{"item"}}
-
+    name: "{{item}}"
+    present: present
   with_item: 
     name: tomcat-webapps
     name: tomcat-admin-webapps
@@ -27,4 +27,7 @@
     name: tomcat
     state: started
 
-
+  name: Deploy .war file to tomcat
+  get_url:
+    url: https://ravidevops.s3-ap-southeast-1.amazonaws.com/raviLogin.war /usr/local/tomcat/webapps/
+    dest: /usr/share/tomcat/webapps/saaho.war     
