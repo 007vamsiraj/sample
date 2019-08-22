@@ -30,5 +30,5 @@
 
   - name: Deploy .war file to tomcat
     get_url:
-      url: https://ravidevops.s3-ap-southeast-1.amazonaws.com/raviLogin.war /usr/local/tomcat/webapps/
+      url: https://ravidevops.s3-ap-southeast-1.amazonaws.com/raviLogin.war 
       dest: /usr/share/tomcat/webapps/saaho.war     
