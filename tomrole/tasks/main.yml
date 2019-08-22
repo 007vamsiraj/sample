@@ -12,7 +12,7 @@
    
   - name: Installing webapps & admin webapps for tomcat
     yum:
-      name: "{{item}}"
+      name: "{{ item }}"
       state: present
     
   - with_items: 
